@@ -8,7 +8,7 @@ Gulp-based build set-up for common needs.
 
 Styles: 
 - PostCSS 
-- Stylelint (standart config)
+- Stylelint (standart config + some sensible settings)
 
 JavaScript: 
 - ES2015, ES2016 
