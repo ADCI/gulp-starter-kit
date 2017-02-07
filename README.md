@@ -12,7 +12,7 @@ Styles:
 
 JavaScript: 
 - ES2015, ES2016 
-- ESLint (recommended config)
+- ESLint (recommended config + airbnb config)
 
 #Installation
 
