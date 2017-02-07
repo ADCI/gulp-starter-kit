@@ -1,14 +1,15 @@
 /* stylelint-disable selector-no-type */
-/* stylelint-disable selector-no-universal */
 
 /* ==========================================================================
    Base styles
    ========================================================================== */
+/* stylelint-disable selector-no-universal  */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+/* stylelint-enable selector-no-universal */
 
 html {
   font-family: $main-font;
@@ -47,10 +48,12 @@ textarea {
   resize: vertical;
 }
 
+/* stylelint-disable selector-no-qualifying-type, selector-no-attribute */
 button,
 input[type="submit"] {
   cursor: pointer;
 }
+/* stylelint-enable selector-no-qualifying-type, selector-no-attribute */
 
 h1,
 h2,
