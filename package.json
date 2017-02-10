@@ -70,15 +70,15 @@
       "selector-no-vendor-prefix": true,
       "value-no-vendor-prefix": true,
       "max-nesting-depth": [
-        3,
+        4,
         {
           "ignore": [
             "blockless-at-rules"
           ]
         }
       ],
-      "selector-max-compound-selectors": 3,
-      "selector-max-specificity": "0,3,0",
+      "selector-max-compound-selectors": 4,
+      "selector-max-specificity": "1,4,1",
       "at-rule-no-unknown": [
         true,
         {
@@ -86,11 +86,6 @@
         }
       ],
       "declaration-no-important": true,
-      "declaration-property-unit-blacklist": {
-        "font-size": [
-          "em"
-        ]
-      },
       "selector-no-attribute": true,
       "selector-no-combinator": true,
       "selector-no-id": true,
