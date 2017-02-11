@@ -14,8 +14,8 @@ Gulp-based build set-up for common needs.
 #Content
 
 Styles: 
-- [link](http://necolas.github.io/normalize.css/ "Normalize.css")
-- PostCSS: [link](http://cssnext.io/ "CSSNext"), [link](https://github.com/jonathantneal/precss "PreCSS" and some of [link](https://simplaio.github.io/rucksack/ "Rucksack") plugins (not as packs, all plugins separate) + [link](https://github.com/luisrudge/postcss-flexbugs-fixes "flex bugs fixes")
+- [Normalize.css](http://necolas.github.io/normalize.css/)
+- PostCSS: [CSSNext](http://cssnext.io/), [PreCSS](https://github.com/jonathantneal/precss) and some of [Rucksack](https://simplaio.github.io/rucksack/) plugins (not as packs, all plugins separate) + [flex bugs fixes](https://github.com/luisrudge/postcss-flexbugs-fixes)
 - Sourcemaps
 
 Scripts: 
@@ -63,5 +63,4 @@ Latest versions of the following:
 - Firefox
 - Safari
 - Opera
-and
 - Internet Explorer 9+ (Support for 9 and 10 versions is being considered to be dropped in near future)
