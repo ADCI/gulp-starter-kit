@@ -6,7 +6,7 @@ Gulp-based build set-up for common needs.
 - dividing source code from compiled
 - separate production task
 - modularity
-- use of edge web technologies
+- the edge web technologies
 - code style checking
 - browsers liver reload
 - dependencies through node modules (you can install libraries through NPM and import them in your styles/scripts)
@@ -14,13 +14,13 @@ Gulp-based build set-up for common needs.
 #Content
 
 Styles: 
-- Normalize.css
-- PostCSS: CSSNext, PreCSS and some of Rucksack plugins (not as packs, all plugins separate)
+- [link](http://necolas.github.io/normalize.css/ "Normalize.css")
+- PostCSS: [link](http://cssnext.io/ "CSSNext"), [link](https://github.com/jonathantneal/precss "PreCSS" and some of [link](https://simplaio.github.io/rucksack/ "Rucksack") plugins (not as packs, all plugins separate) + [link](https://github.com/luisrudge/postcss-flexbugs-fixes "flex bugs fixes")
 - Sourcemaps
 
 Scripts: 
 - Javascript: ES2015, ES2016
-- Webpack (as module bundler)
+- Webpack 1.x (as module bundler)
 - Sourcemaps
 
 Code style checking:
@@ -29,7 +29,7 @@ Code style checking:
 
 Images:
 - sprites generator
-- compress images in production build
+- compress images in the production build
 
 Fonts (fallback: it's better to use FontSquirrel for generating fonts):
 - generates TTF, WOFF, WOFF2 fonts from OTF, TTF
@@ -42,7 +42,7 @@ Browsers liver reload:
 - Node.js - latest v6.9.x LTS "Boron" is recommended
 - NPM - latest version recommended
 - (optional) Yarn - to use instead of NPM
-- (optional) Gulp globally - latest v3.9.x recommended, if you want to use gulp commands directly
+- (optional) Gulp globally - latest v3.9.x recommended if you want to use gulp commands directly
 
 #Installation
 
@@ -64,4 +64,4 @@ Latest versions of the following:
 - Safari
 - Opera
 and
-- Internet Explorer 9+ (Support for 9 and 10 version is being considered to drop in near future)
+- Internet Explorer 9+ (Support for 9 and 10 versions is being considered to be dropped in near future)
