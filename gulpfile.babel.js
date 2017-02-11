@@ -252,7 +252,8 @@ const postcssProcessors = [
     reduceTransforms: true,
     uniqueSelectors: true,
     zindex: false
-  })
+  }),
+  postcssReporter({ clearReportedMessages: true })
 ];
 
 gulp.task('styles', ['lint-styles'], () => {
