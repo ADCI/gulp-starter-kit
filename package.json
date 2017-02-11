@@ -47,6 +47,7 @@
     "run-sequence": "^1.2.2",
     "stylelint": "^7.8.0",
     "stylelint-config-standard": "^16.0.0",
+    "stylelint-csslint-missing": "^0.0.1",
     "vinyl-buffer": "^1.0.0",
     "webpack-stream": "^3.2.0"
   },
@@ -61,40 +62,6 @@
     "watch": "gulp watch",
     "serve": "gulp serve"
   },
-  "stylelint": {
-    "extends": "stylelint-config-standard",
-    "rules": {
-      "at-rule-no-vendor-prefix": true,
-      "media-feature-name-no-vendor-prefix": true,
-      "property-no-vendor-prefix": true,
-      "selector-no-vendor-prefix": true,
-      "value-no-vendor-prefix": true,
-      "max-nesting-depth": [
-        4,
-        {
-          "ignore": [
-            "blockless-at-rules"
-          ]
-        }
-      ],
-      "selector-max-compound-selectors": 4,
-      "selector-max-specificity": "1,4,1",
-      "at-rule-no-unknown": [
-        true,
-        {
-          "ignoreAtRules": ["define-mixin", "mixin"]
-        }
-      ],
-      "declaration-no-important": true,
-      "selector-no-attribute": true,
-      "selector-no-combinator": true,
-      "selector-no-id": true,
-      "selector-no-qualifying-type": true,
-      "selector-no-type": true,
-      "selector-no-universal": true,
-      "max-line-length": 120
-    }
-  },
   "babel": {
     "presets": [
       "es2015",
@@ -104,12 +71,6 @@
     "ignore": [
       "src/js/vendor",
       "/node_modules/"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "eslint:recommended",
-      "airbnb"
     ]
   }
 }
