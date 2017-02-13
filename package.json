@@ -1,9 +1,21 @@
 {
   "name": "gulp-starter-pack",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Gulp boilerplate build config",
+  "keywords": ["gulp", "front-end build"],
+  "homepage": "https://github.com/ADCI/gulp-starter-kit",
+  "bugs": {
+    "url": "https://github.com/ADCI/gulp-starter-kit/issues",
+    "email": "guryanov.artyom@gmail.com"
+  },
+  "repository": {
+    "type" : "git"
+  , "url" : "https://github.com/ADCI/gulp-starter-kit"
+  },
   "main": "gulpfile.babel.js",
-  "dependencies": {},
+  "dependencies": {
+    "normalize.css": "^5.0.0"
+  },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
     "babel-core": "^6.22.1",
@@ -38,7 +50,6 @@
     "gulp-uglify": "^2.0.0",
     "gulp.spritesmith": "^6.3.0",
     "imagemin-pngquant": "^5.0.0",
-    "normalize.css": "^5.0.0",
     "postcss-advanced-variables": "^1.2.2",
     "postcss-atroot": "^0.1.3",
     "postcss-calc": "^5.3.1",
