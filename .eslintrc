@@ -1,6 +1,15 @@
 {
   "extends": [
-    "eslint:recommended",
-    "airbnb"
-  ]
+    "eslint:recommended"
+  ],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jquery": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2016,
+    "sourceType": "module"
+  }
 }

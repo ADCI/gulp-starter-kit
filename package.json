@@ -2,18 +2,22 @@
   "name": "gulp-starter-pack",
   "version": "0.4.0",
   "description": "Gulp boilerplate build config",
-  "keywords": ["gulp", "front-end build"],
+  "keywords": [
+    "gulp",
+    "front-end build"
+  ],
   "homepage": "https://github.com/ADCI/gulp-starter-kit",
   "bugs": {
     "url": "https://github.com/ADCI/gulp-starter-kit/issues",
     "email": "guryanov.artyom@gmail.com"
   },
   "repository": {
-    "type" : "git"
-  , "url" : "https://github.com/ADCI/gulp-starter-kit"
+    "type": "git",
+    "url": "https://github.com/ADCI/gulp-starter-kit"
   },
   "main": "gulpfile.babel.js",
   "dependencies": {
+    "babel-eslint": "^7.1.1",
     "normalize.css": "^5.0.0"
   },
   "devDependencies": {
