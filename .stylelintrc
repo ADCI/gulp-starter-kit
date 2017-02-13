@@ -24,12 +24,12 @@
       {
         "ignoreAtRules": [
           "define-mixin",
-          "mixin"
+          "mixin",
+          "extend"
         ]
       }
     ],
     "declaration-no-important": true,
-    "selector-no-combinator": true,
     "selector-no-universal": true,
     "max-line-length": 120
   }
