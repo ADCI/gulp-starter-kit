@@ -39,19 +39,34 @@ Browsers live reload:
 
 #Base structure
 
-CSS: 
-- one main file (main.css), 
-- src
-  - base
-    - vars: variables
-    - tools: mixins
-    - elements: base html elements styles
-  - objects: OOCSS
-  - components: BEM, Atomic Design
+**src/**
+
+PostCSS (postcss/):
+- main source file (main.css)
+- base/:
+  - vars: variables
+  - tools: mixins
+  - elements: base html elements styles
+- objects/: OOCSS
+- components/: BEM, Atomic Design
   
-JavaScript:
-- one main file (main.js)
-- modules: folder for javascript modules
+JavaScript (js/):
+- main source file (main.js)
+- modules/: folder for javascript modules
+
+Images (img/):
+- img/ - source images
+- img/sprite/ - source images for sprite
+
+Fonts (fonts/) - source fonts
+
+**dist/**
+
+- css/main.css - output css
+- js/main.js - output js
+- img/ - output images
+- img/sprite.png - output sprite
+- fonts/ - output fonts
 
 #Requirements
 
@@ -65,10 +80,12 @@ JavaScript:
 `npm install` or `yarn install`
 
 #Usage
+
 - `gulp` / `npm run build` / `yarn build` - build project
 - `gulp watch` / `npm run watch` / `yarn watch` - watch changes
 - `gulp serve` / `npm run serve` / `yarn serve` - local server that watches your changes (Browsersync)
 - `gulp prod` / `npm run prod` / `yarn prod` - build production-ready code
+
 Also, you can see subtasks in gulpfile.
 
 #Browser support
