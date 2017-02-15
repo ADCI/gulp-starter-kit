@@ -105,16 +105,5 @@
     "prod": "gulp prod",
     "watch": "gulp watch",
     "serve": "gulp serve"
-  },
-  "babel": {
-    "presets": [
-      "es2015",
-      "es2016"
-    ],
-    "retainLines": true,
-    "ignore": [
-      "src/js/vendor",
-      "/node_modules/"
-    ]
   }
 }
