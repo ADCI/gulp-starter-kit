@@ -3,7 +3,7 @@
 Gulp-based build set-up for common needs.
 
 #Concepts
-- dividing source code from compiled
+- divide source code from compiled
 - separate production task
 - modularity
 - the edge of web technologies
