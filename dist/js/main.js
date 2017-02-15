@@ -44,8 +44,6 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	/* eslint-env browser */
-
 	// Imports
 
 	// Code

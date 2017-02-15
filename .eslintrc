@@ -1,6 +1,7 @@
 {
   "extends": [
-    "eslint:recommended"
+    "eslint:recommended",
+    "airbnb"
   ],
   "env": {
     "browser": true,
@@ -11,5 +12,14 @@
   "parserOptions": {
     "ecmaVersion": 2016,
     "sourceType": "module"
+  },
+  "rules": {
+    "no-param-reassign": [
+      "warn",
+      {
+        "props": true
+      }
+    ],
+    "no-unused-vars": "warn"
   }
 }
