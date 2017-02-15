@@ -37,6 +37,22 @@ Fonts (fallback: it's better to use FontSquirrel for generating fonts):
 Browsers live reload:
 - BrowserSync
 
+#Base structure
+
+CSS: 
+- one main file (main.css), 
+- src
+  - base
+    - vars: variables
+    - tools: mixins
+    - elements: base html elements styles
+  - objects: OOCSS
+  - components: BEM, Atomic Design
+  
+JavaScript:
+- one main file (main.js)
+- modules: folder for javascript modules
+
 #Requirements
 
 - Node.js - latest v6.9.x LTS "Boron" is recommended
@@ -68,7 +84,7 @@ Latest versions of the following:
 #Related links
 - [nvm](https://github.com/creationix/nvm), [Node.js](https://nodejs.org/en/), [NPM](https://www.npmjs.com/), [Yarn](https://yarnpkg.com/lang/en/)
 - [Gulp](http://gulpjs.com/)
-- CSS: [Normalize.css](http://necolas.github.io/normalize.css/)
+- CSS: [Normalize.css](http://necolas.github.io/normalize.css/), [OOCSS](https://www.smashingmagazine.com/2011/12/an-introduction-to-object-oriented-css-oocss/), [BEM](http://getbem.com/introduction/), [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/)
 - [PostCSS](http://postcss.org/): [CSSNext](http://cssnext.io/), [PreCSS](https://github.com/jonathantneal/precss), [Rucksack](https://simplaio.github.io/rucksack/), [flex bugs fixes](https://github.com/luisrudge/postcss-flexbugs-fixes)
 - [Sourcemaps](https://blog.logentries.com/2014/12/what-are-javascript-source-maps/)
 - JavaScript: [ES2015](https://babeljs.io/learn-es2015/), [ES2016](http://www.2ality.com/2016/01/ecmascript-2016.html), [JavaScript Modules](https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.gckmsqgz5)
