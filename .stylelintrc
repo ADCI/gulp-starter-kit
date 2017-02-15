@@ -21,6 +21,10 @@
     "selector-max-specificity": "1,4,1",
     "declaration-no-important": true,
     "selector-no-universal": true,
-    "max-line-length": 120
-  }
+    "max-line-length": 120,
+    "no-eol-whitespace": null
+  },
+  "ignoreFiles": [
+    "node_modules"
+  ]
 }
