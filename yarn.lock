@@ -5482,12 +5482,6 @@ postcss-simple-vars@^3.0.0:
   dependencies:
     postcss "^5.0.21"
 
-postcss-strip-inline-comments@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/postcss-strip-inline-comments/-/postcss-strip-inline-comments-0.1.5.tgz#7ff6bcdc14e633ed4cdfa020bae3eddad4f84b90"
-  dependencies:
-    postcss "^5.0.18"
-
 postcss-svgo@^2.1.1:
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/postcss-svgo/-/postcss-svgo-2.1.6.tgz#b6df18aa613b666e133f08adb5219c2684ac108d"
