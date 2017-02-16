@@ -24,8 +24,8 @@ Scripts:
 - Sourcemaps
 
 Code style checking:
-- (Styles) Stylelint (standart config, csslint-missing + some sensible settings)
-- (Scripts) ESLint (recommended config + airbnb config)
+- (Styles) Stylelint (standard config, csslint-missing + some sensible settings)
+- (Scripts) ESLint (recommended config + Airbnb config)
 
 Images:
 - sprites generator (spritesmith)
@@ -96,7 +96,7 @@ Latest versions of the following:
 - Firefox
 - Safari
 - Opera
-- Internet Explorer 9+ (Support for 9 and 10 versions is being considered to be dropped in near future)
+- Internet Explorer 9+ (Support for 9 and 10 versions is being considered to be dropped in the near future)
 
 #Related links
 - [nvm](https://github.com/creationix/nvm), [Node.js](https://nodejs.org/en/), [NPM](https://www.npmjs.com/), [Yarn](https://yarnpkg.com/lang/en/)
