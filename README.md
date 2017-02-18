@@ -72,19 +72,18 @@ Fonts (fonts/) - source fonts
 
 - Node.js - latest v6.9.x LTS "Boron" is recommended
 - NPM - latest version recommended
-- (optional) Yarn - to use instead of NPM
 - (optional) Gulp globally - latest v3.9.x recommended if you want to use gulp commands directly
 
 #Installation
 
-`npm install` or `yarn install`
+`npm install`
 
 #Usage
 
-- `gulp` / `npm run build` / `yarn build` - build project
-- `gulp watch` / `npm run watch` / `yarn watch` - watch changes
-- `gulp serve` / `npm run serve` / `yarn serve` - local server that watches your changes (Browsersync)
-- `gulp prod` / `npm run prod` / `yarn prod` - build production-ready code
+- `gulp` / `npm run build` - build project
+- `gulp watch` / `npm run watch` - watch changes
+- `gulp serve` / `npm run serve` - local server that watches your changes (Browsersync)
+- `gulp prod` / `npm run prod` - build production-ready code
 
 Also, you can see subtasks in gulpfile.
 
