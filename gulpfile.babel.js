@@ -55,16 +55,10 @@ const reload = browserSync.reload;
 const dist = './dist';
 const src = './src';
 
-// Linters
-gulp.task('lint-styles', () => {
-  gulp.src(src + '/postcss/**/*.css')
-    .pipe($.postcss([
-      stylelint,
-      postcssReporter({ clearReportedMessages: true })
-    ], {syntax: postscss}));
-});
+const stylesType = 'postcss'; // postcss or scss
+const stylesExtension = stylesType === 'postcss' ? '.css' : '.scss';
 
-gulp.task('lint-scripts', () => {
+gulp.task('lint:scripts', () => {
   return gulp.src(src + '/js/**/*.js')
   .pipe($.eslint())
   .pipe($.eslint.format(friendlyFormatter));
@@ -90,7 +84,7 @@ gulp.task('images', () => {
     .pipe(gulp.dest(src + '/css'));
 });
 
-gulp.task('images-prod', () => {
+gulp.task('images:prod', () => {
   // separate images
   gulp.src(src + '/img/**/*.*')
     .pipe($.cache($.imagemin({
@@ -133,7 +127,8 @@ gulp.task('copy', () => {
   gulp.src(
     [
       src + '/*',
-      '!' + src + '/postcss'
+      '!' + src + '/postcss',
+      '!' + src + '/scss'
     ],
     {
       dot: true
@@ -182,7 +177,6 @@ const supportedBrowsers = [
   'android >= 4.1',
   'bb >= 10'
 ];
-
 const postcssProcessors = [
   postcssImport,
   postcssMixins,
@@ -255,8 +249,15 @@ const postcssProcessors = [
   }),
   postcssReporter({ clearReportedMessages: true })
 ];
+const scssProcessors = [
+  postcssFlexbugsFixes,
+  autoprefixer({
+    browsers: supportedBrowsers,
+    cascade: false
+  }),
+];
 
-gulp.task('styles', ['lint-styles'], () => {
+gulp.task('postcss', ['lint:postcss'], () => {
   gulp.src(src + '/postcss/*.css')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
@@ -265,11 +266,76 @@ gulp.task('styles', ['lint-styles'], () => {
     .pipe(gulp.dest(dist + '/css'));
 });
 
-gulp.task('styles-prod', ['lint-styles'], () => {
+gulp.task('postcss:prod', ['lint:postcss'], () => {
   gulp.src(src + '/postcss/*.css')
-    .pipe($.plumber())
     .pipe($.postcss(postcssProcessors, {syntax: postscss}))
     .pipe(gulp.dest(dist + '/css'));
+});
+
+gulp.task('scss', ['lint:scss'], () => {
+  gulp.src(src + '/scss/*.scss')
+  .pipe($.plumber())
+  .pipe($.sourcemaps.init())
+  .pipe($.sass().on('error', sass.logError))
+  .pipe($.postcss(scssProcessors))
+  .pipe($.sourcemaps.write())
+  .pipe(gulp.dest(dist + '/css'));
+});
+
+gulp.task('scss:prod', ['lint:scss'], () => {
+  gulp.src(src + '/scss/*.scss')
+  .pipe($.sass().on('error', sass.logError))
+  .pipe($.postcss(scssProcessors))
+  .pipe(gulp.dest(dist + '/css'));
+});
+
+gulp.task('lint:postcss', () => {
+  gulp.src(src + '/postcss/**/*.css')
+  .pipe($.postcss([
+    stylelint,
+    postcssReporter({ clearReportedMessages: true })
+  ], {syntax: postscss}));
+});
+
+const stylelintScss = {
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-scss"
+  ],
+  "rules": {
+    "at-rule-no-vendor-prefix": true,
+    "media-feature-name-no-vendor-prefix": true,
+    "property-no-vendor-prefix": true,
+    "selector-no-vendor-prefix": true,
+    "value-no-vendor-prefix": true,
+    "max-nesting-depth": [
+      4,
+      {
+        "ignore": [
+          "blockless-at-rules"
+        ]
+      }
+    ],
+    "selector-max-compound-selectors": 4,
+    "selector-max-specificity": "1,4,1",
+    "declaration-no-important": true,
+    "selector-no-universal": true,
+    "max-line-length": 120,
+    "no-eol-whitespace": null
+  },
+  "ignoreFiles": [
+    "node_modules"
+  ]
+};
+
+gulp.task('lint:scss', () => {
+  gulp.src(src + '/scss/**/*.scss')
+  .pipe($.postcss([
+    stylelint({
+      config: stylelintScss
+    }),
+    postcssReporter({ clearReportedMessages: true })
+  ], {syntax: postscss}));
 });
 
 // Scripts
@@ -293,7 +359,7 @@ const webpackConfig = {
   }
 };
 
-gulp.task('scripts', ['lint-scripts'], () => {
+gulp.task('scripts', ['lint:scripts'], () => {
   gulp.src(src + '/js/*.js')
     .pipe($.sourcemaps.init())
     .pipe(webpack(webpackConfig))
@@ -301,7 +367,7 @@ gulp.task('scripts', ['lint-scripts'], () => {
     .pipe(gulp.dest(dist + '/js'));
 });
 
-gulp.task('scripts-prod', ['lint-scripts'], () => {
+gulp.task('scripts:prod', ['lint:scripts'], () => {
   gulp.src(src + '/js/*.js')
     .pipe(webpack(webpackConfig))
     .pipe($.uglify())
@@ -314,7 +380,7 @@ gulp.task('clean', () => del([dist], {dot: true}));
 // Build dev files
 gulp.task('default', ['clean'], cb => {
   runSequence(
-    ['styles', 'scripts', 'images', 'copy'],
+    [stylesType, 'scripts', 'images', 'copy'],
     cb
   );
 });
@@ -322,14 +388,14 @@ gulp.task('default', ['clean'], cb => {
 // Build production files
 gulp.task('prod', ['clean'], cb => {
   runSequence(
-    ['styles-prod', 'scripts-prod', 'images-prod', 'copy'],
+    [stylesType + ':prod', 'scripts:prod', 'images:prod', 'copy'],
     cb
   );
 });
 
 // Watch
 gulp.task('watch', ['default'], () => {
-  gulp.watch([src + '/postcss/**/*.css'], ['styles', reload]);
+  gulp.watch([src + '/' + stylesType + '/**/*' + stylesExtension], [stylesType, reload]);
   gulp.watch([src + '/js/**/*.js'], ['scripts', reload]);
   gulp.watch([src + '/img/**/*'], ['img', reload]);
 });
@@ -341,6 +407,6 @@ gulp.task('serve', ['default'], () => {
     server: dist
   });
 
-  gulp.watch([src + '/postcss/**/*.css'], ['styles', reload]);
+  gulp.watch([src + '/' + stylesType + '/**/*' + stylesExtension], [stylesType, reload]);
   gulp.watch([src + '/js/**/*.js'], ['scripts', reload]);
 });
