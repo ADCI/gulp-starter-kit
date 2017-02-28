@@ -1,7 +1,6 @@
 {
   "extends": [
-    "stylelint-config-standard",
-    "stylelint-csslint-missing"
+    "stylelint-config-standard"
   ],
   "rules": {
     "at-rule-no-vendor-prefix": true,
