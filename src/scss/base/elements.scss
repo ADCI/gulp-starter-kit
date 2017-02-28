@@ -1,0 +1,56 @@
+/* ==========================================================================
+   Base styles
+   ========================================================================== */
+/* stylelint-disable selector-no-universal  */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* stylelint-enable selector-no-universal */
+
+html {
+  font-family: $main-font;
+  font-size: $main-font-size;
+  line-height: $main-line-height;
+  background: $main-bg;
+  color: $main-text-color;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video,
+object,
+input,
+textarea {
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}

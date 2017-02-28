@@ -4,18 +4,20 @@ $c-black: #000;
 
 /* Fonts */
 $f-sans-serif: sans-serif;
+$f-serif: serif;
 
 /* Base variables */
-$main-font: $sans-serif;
+$main-font: $f-sans-serif;
 $main-font-size: 14px;
 $main-line-height: 2;
-$heading-font: $montserrat;
+$heading-font: $f-serif;
 $heading-line-height: 1.1;
 $main-bg: transparent;
-$main-text-color: $shuttle-gray;
-$secondary-text-color: $white;
+$main-text-color: $c-black;
+$secondary-text-color: $c-white;
 $link-color: inherit;
 $default-transition-time: 0.3s;
+$default-transition: all $default-transition-time ease;
 
 /* Media variables */
 @custom-media --3xl screen and (min-width: 1921px);
