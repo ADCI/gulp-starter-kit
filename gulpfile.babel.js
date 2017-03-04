@@ -174,6 +174,16 @@ const scssProcessors = [
     cascade: false
   }),
 ];
+const scssProcessorsProd = [
+  autoprefixer({
+    browsers: supportedBrowsers,
+    cascade: false
+  }),
+  cssMqpacker({ sort: true }),
+  cssnano({
+    autoprefixer: false
+  }),
+];
 const stylelintScss = {
   "extends": [
     "stylelint-config-standard",
@@ -241,7 +251,7 @@ gulp.task('scss', ['scss:lint'], () => {
 gulp.task('scss:prod', ['scss:lint'], () => {
   gulp.src(src + '/scss/*.scss')
   .pipe($.sass().on('error', $.sass.logError))
-  .pipe($.postcss(scssProcessors))
+  .pipe($.postcss(scssProcessorsProd))
   .pipe(gulp.dest(dist + '/css'));
 });
 

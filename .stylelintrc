@@ -9,15 +9,15 @@
     "selector-no-vendor-prefix": true,
     "value-no-vendor-prefix": true,
     "max-nesting-depth": [
-      4,
+      3,
       {
         "ignore": [
           "blockless-at-rules"
         ]
       }
     ],
-    "selector-max-compound-selectors": 4,
-    "selector-max-specificity": "1,4,1",
+    "selector-max-compound-selectors": 3,
+    "selector-max-specificity": "1,3,1",
     "declaration-no-important": true,
     "selector-no-universal": true,
     "max-line-length": 120,
