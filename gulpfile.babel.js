@@ -1,69 +1,56 @@
-// imports
+/**
+ * Imports
+ */
+
+// common
 import gulp from 'gulp';
-import autoprefixer from 'autoprefixer';
-import postcssImport from 'postcss-import';
-import postcssMixins from 'postcss-mixins';
-import postcssVariables from 'postcss-advanced-variables';
-import postcssCustomSelectors from 'postcss-custom-selectors';
-import postcssCustomMedia from 'postcss-custom-media';
-import postcssCustomProperties from 'postcss-custom-properties';
-import postcssMediaMinMax from 'postcss-media-minmax';
-import postcssColorFunction from 'postcss-color-function';
-import postcssNesting from 'postcss-nesting';
-import postcssNested from 'postcss-nested';
-import postcssAtRoot from 'postcss-atroot';
-import postcssPropertyLookup from 'postcss-property-lookup';
-import postcssExtend from 'postcss-extend';
-import postcssSelectorMatches from 'postcss-selector-matches';
-import postcssSelectorNot from 'postcss-selector-not';
-import postscss from 'postcss-scss';
-import postcssCalc from 'postcss-calc';
-import cssMqpacker from 'css-mqpacker';
-import postcssFlexbugsFixes from 'postcss-flexbugs-fixes';
-import postcssClearfix from 'postcss-clearfix';
-import postcssColorGray from 'postcss-color-gray';
-import postcssColorHexAlpha from 'postcss-color-hex-alpha';
-import postcssColorHwb from 'postcss-color-hwb';
-import postcssColorRebeccapurple from 'postcss-color-rebeccapurple';
-import postcssEasings from 'postcss-easings';
-import postcssFontVariant from 'postcss-font-variant';
-import postcssHexrgba from 'postcss-hexrgba';
-import postcssInitial from 'postcss-initial';
-import postcssInputStyle from 'postcss-input-style';
-import postcssPosition from 'postcss-position';
-import postcssPseudoClassAnyLink from 'postcss-pseudo-class-any-link';
-import postcssPseudoelements from 'postcss-pseudoelements';
-import postcssQuantityQueries from 'postcss-quantity-queries';
-import postcssReporter from 'postcss-reporter';
-import cssnano from 'cssnano';
-import pngquant from 'imagemin-pngquant';
+import gulpLoadPlugins from 'gulp-load-plugins';
 import del from 'del';
 import buffer from 'vinyl-buffer';
 import runSequence from 'run-sequence';
-import browserSync from 'browser-sync';
-import gulpLoadPlugins from 'gulp-load-plugins';
-import Fontmin from 'fontmin';
-import stylelint from 'stylelint';
-import webpack from 'webpack-stream';
-import friendlyFormatter from 'eslint-friendly-formatter';
 
+// styles
+import autoprefixer from 'autoprefixer';
+import postscss from 'postcss-scss';
+import cssMqpacker from 'css-mqpacker';
+import postcssNext from 'postcss-cssnext';
+import postcssImport from 'postcss-import';
+import postcssReporter from 'postcss-reporter';
+import cssnano from 'cssnano';
+
+// js
+import webpack from 'webpack-stream';
+
+// linters
+import friendlyFormatter from 'eslint-friendly-formatter';
+import stylelint from 'stylelint';
+
+// Images
+import pngquant from 'imagemin-pngquant';
+
+// Browser
+import browserSync from 'browser-sync';
+
+// Fonts
+import Fontmin from 'fontmin';
+
+/**
+ * Variables
+ */
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+const stylesType = 'postcss'; // postcss or scss
+const stylesExtension = stylesType === 'postcss' ? '.css' : '.scss';
 
 // Paths
 const dist = './dist';
 const src = './src';
 
-const stylesType = 'postcss'; // postcss or scss
-const stylesExtension = stylesType === 'postcss' ? '.css' : '.scss';
+/**
+ * Tasks
+ */
 
-gulp.task('lint:scripts', () => {
-  return gulp.src(src + '/js/**/*.js')
-  .pipe($.eslint())
-  .pipe($.eslint.format(friendlyFormatter));
-});
-
-// Optimize images
+// Images
 gulp.task('images', () => {
   // separate images
   gulp.src(src + '/img/**/*.*')
@@ -165,136 +152,28 @@ gulp.task('fonts', () => {
 // Styles
 const supportedBrowsers = [
   '> 0.5%',
-  'last 2 versions',
-  'ie >= 9',
-  'ie_mob >= 10',
-  'ff >= 30',
-  'chrome >= 34',
-  'safari >= 7',
-  'opera >= 23',
-  'ios >= 7',
-  'android >= 4.1',
-  'bb >= 10'
+  'last 2 versions'
 ];
 const postcssProcessors = [
   postcssImport,
-  postcssMixins,
-  postcssVariables,
-  postcssCustomSelectors,
-  postcssCustomMedia,
-  postcssCustomProperties,
-  postcssMediaMinMax,
-  postcssColorFunction,
-  postcssColorGray,
-  postcssColorHexAlpha,
-  postcssColorHwb,
-  postcssColorRebeccapurple,
-  postcssEasings,
-  postcssFontVariant,
-  postcssHexrgba,
-  postcssPseudoClassAnyLink,
-  postcssInputStyle,
-  postcssPosition,
-  postcssNesting,
-  postcssNested,
-  postcssAtRoot,
-  postcssPropertyLookup,
-  postcssExtend,
-  postcssSelectorMatches,
-  postcssSelectorNot,
-  postcssClearfix,
-  postcssQuantityQueries,
-  postcssPseudoelements,
-  postcssCalc,
-  postcssInitial,
-  postcssFlexbugsFixes,
-  autoprefixer({
-    browsers: supportedBrowsers,
-    cascade: false
-  }),
+  postcssNext({ browsers: supportedBrowsers }),
+  postcssReporter({ clearReportedMessages: true })
+];
+const postcssProcessorsProd = [
+  postcssImport,
+  postcssNext({ browsers: supportedBrowsers }),
   cssMqpacker({ sort: true }),
   cssnano({
-    autoprefixer: false,
-    calc: false,
-    colormin: false,
-    convertValues: true,
-    core: true,
-    discardComments: true,
-    discardDuplicates: true,
-    discardEmpty: true,
-    discardOverridden: true,
-    discardUnused: true,
-    filterOptimiser: true,
-    functionOptimiser: true,
-    mergeIdents: true,
-    mergeLonghand: true,
-    mergeRules: true,
-    minifyFontValues: true,
-    minifyGradients: true,
-    minifyParams: true,
-    minifySelectors: true,
-    normalizeCharset: true,
-    normalizeUrl: true,
-    orderedValues: true,
-    reduceBackgroundRepeat: true,
-    reduceIdents: true,
-    reduceInitial: true,
-    reducePositions: true,
-    reduceTimingFunctions: true,
-    reduceTransforms: true,
-    uniqueSelectors: true,
-    zindex: false
+    autoprefixer: false
   }),
   postcssReporter({ clearReportedMessages: true })
 ];
 const scssProcessors = [
-  postcssFlexbugsFixes,
   autoprefixer({
     browsers: supportedBrowsers,
     cascade: false
   }),
 ];
-
-gulp.task('postcss', ['lint:postcss'], () => {
-  gulp.src(src + '/postcss/*.css')
-    .pipe($.plumber())
-    .pipe($.sourcemaps.init())
-    .pipe($.postcss(postcssProcessors, {syntax: postscss}))
-    .pipe($.sourcemaps.write())
-    .pipe(gulp.dest(dist + '/css'));
-});
-
-gulp.task('postcss:prod', ['lint:postcss'], () => {
-  gulp.src(src + '/postcss/*.css')
-    .pipe($.postcss(postcssProcessors, {syntax: postscss}))
-    .pipe(gulp.dest(dist + '/css'));
-});
-
-gulp.task('scss', ['lint:scss'], () => {
-  gulp.src(src + '/scss/*.scss')
-  .pipe($.plumber())
-  .pipe($.sourcemaps.init())
-  .pipe($.sass().on('error', sass.logError))
-  .pipe($.postcss(scssProcessors))
-  .pipe($.sourcemaps.write())
-  .pipe(gulp.dest(dist + '/css'));
-});
-
-gulp.task('scss:prod', ['lint:scss'], () => {
-  gulp.src(src + '/scss/*.scss')
-  .pipe($.sass().on('error', sass.logError))
-  .pipe($.postcss(scssProcessors))
-  .pipe(gulp.dest(dist + '/css'));
-});
-
-gulp.task('lint:postcss', () => {
-  gulp.src(src + '/postcss/**/*.css')
-  .pipe($.postcss([
-    stylelint,
-    postcssReporter({ clearReportedMessages: true })
-  ], {syntax: postscss}));
-});
-
 const stylelintScss = {
   "extends": [
     "stylelint-config-standard",
@@ -326,7 +205,47 @@ const stylelintScss = {
   ]
 };
 
-gulp.task('lint:scss', () => {
+gulp.task('postcss', ['postcss:lint'], () => {
+  gulp.src(src + '/postcss/*.css')
+    .pipe($.plumber())
+    .pipe($.sourcemaps.init())
+    .pipe($.postcss(postcssProcessors, {syntax: postscss}))
+    .pipe($.sourcemaps.write())
+    .pipe(gulp.dest(dist + '/css'));
+});
+
+gulp.task('postcss:prod', ['postcss:lint'], () => {
+  gulp.src(src + '/postcss/*.css')
+    .pipe($.postcss(postcssProcessorsProd, {syntax: postscss}))
+    .pipe(gulp.dest(dist + '/css'));
+});
+
+gulp.task('postcss:lint', () => {
+  gulp.src(src + '/postcss/**/*.css')
+  .pipe($.postcss([
+    stylelint,
+    postcssReporter({ clearReportedMessages: true })
+  ], {syntax: postscss}));
+});
+
+gulp.task('scss', ['scss:lint'], () => {
+  gulp.src(src + '/scss/*.scss')
+  .pipe($.plumber())
+  .pipe($.sourcemaps.init())
+  .pipe($.sass().on('error', $.sass.logError))
+  .pipe($.postcss(scssProcessors))
+  .pipe($.sourcemaps.write())
+  .pipe(gulp.dest(dist + '/css'));
+});
+
+gulp.task('scss:prod', ['scss:lint'], () => {
+  gulp.src(src + '/scss/*.scss')
+  .pipe($.sass().on('error', $.sass.logError))
+  .pipe($.postcss(scssProcessors))
+  .pipe(gulp.dest(dist + '/css'));
+});
+
+gulp.task('scss:lint', () => {
   gulp.src(src + '/scss/**/*.scss')
   .pipe($.postcss([
     stylelint({
@@ -357,7 +276,7 @@ const webpackConfig = {
   }
 };
 
-gulp.task('scripts', ['lint:scripts'], () => {
+gulp.task('scripts', ['scripts:lint'], () => {
   gulp.src(src + '/js/*.js')
     .pipe($.sourcemaps.init())
     .pipe(webpack(webpackConfig))
@@ -365,15 +284,21 @@ gulp.task('scripts', ['lint:scripts'], () => {
     .pipe(gulp.dest(dist + '/js'));
 });
 
-gulp.task('scripts:prod', ['lint:scripts'], () => {
+gulp.task('scripts:prod', ['scripts:lint'], () => {
   gulp.src(src + '/js/*.js')
     .pipe(webpack(webpackConfig))
     .pipe($.uglify())
     .pipe(gulp.dest(dist + '/js'))
 });
 
+gulp.task('scripts:lint', () => {
+  return gulp.src(src + '/js/**/*.js')
+  .pipe($.eslint())
+  .pipe($.eslint.format(friendlyFormatter));
+});
+
 // Clean output directory
-gulp.task('clean', () => del([dist], {dot: true}));
+gulp.task('clean', () => del([dist], { dot: true }));
 
 // Build dev files
 gulp.task('default', ['clean'], cb => {

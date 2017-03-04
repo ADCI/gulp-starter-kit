@@ -10,12 +10,10 @@
 /* stylelint-enable selector-no-universal */
 
 html {
-  font-family: $main-font;
-  font-size: $main-font-size;
-  line-height: $main-line-height;
-  background: $main-bg;
-  color: $main-text-color;
-  overflow-wrap: break-word;
+  font-family: var(--main-font);
+  font-size: var(--main-font-size);
+  line-height: var(--main-line-height);
+  color: var(--main-text-color);
   word-wrap: break-word;
 }
 
@@ -43,14 +41,4 @@ textarea {
 button,
 input[type="submit"] {
   cursor: pointer;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin-top: 0;
 }

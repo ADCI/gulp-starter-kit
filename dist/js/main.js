@@ -45,8 +45,6 @@
 /***/ function(module, exports) {
 
 	// Imports
-
-	// Code
 	"use strict";
 
 /***/ }

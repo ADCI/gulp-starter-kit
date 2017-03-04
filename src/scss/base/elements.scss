@@ -15,7 +15,6 @@ html {
   line-height: $main-line-height;
   background: $main-bg;
   color: $main-text-color;
-  overflow-wrap: break-word;
   word-wrap: break-word;
 }
 
@@ -45,12 +44,4 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin-top: 0;
-}
+

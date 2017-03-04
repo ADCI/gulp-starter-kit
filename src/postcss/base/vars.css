@@ -1,23 +1,15 @@
-/* Colors */
-$c-white: #fff;
-$c-black: #000;
+:root {
+  /* Colors */
+  --c-white: #fff;
+  --c-black: #000;
 
-/* Fonts */
-$f-sans-serif: sans-serif;
-$f-serif: serif;
+  /* Fonts */
+  --f-sans-serif: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-/* Base variables */
-$main-font: $f-sans-serif;
-$main-font-size: 14px;
-$main-line-height: 2;
-$heading-font: $f-serif;
-$heading-line-height: 1.1;
-$main-bg: transparent;
-$main-text-color: $c-black;
-$secondary-text-color: $c-white;
-$link-color: inherit;
-$default-transition-time: 0.3s;
-$default-transition: all $default-transition-time ease;
+  /* Defaults */
+  --default-transition-time: 0.3s;
+  --default-transition: all var(--default-transition-time) ease;
+}
 
 /* Media variables */
 @custom-media --3xl screen and (min-width: 1921px);
@@ -44,5 +36,4 @@ $default-transition: all $default-transition-time ease;
 @custom-media --from-s screen and (min-width: 321px);
 @custom-media --s screen and (width >= 321px) and (width <= 479px);
 @custom-media --xs screen and (max-width: 320px);
-
 @custom-media --retina2x screen and (min-resolution: 120dpi), screen and (min-resolution: 1.25dppx);

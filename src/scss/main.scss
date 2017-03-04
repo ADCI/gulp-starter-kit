@@ -1,12 +1,14 @@
 /* Setup */
 @import "base/vars";
-@import "base/mixins";
+
+/* Mixins */
+@import "tools/mixins";
 
 /* Vendors */
 @import "~normalize.css";
 
 /* Base styles */
-@import "./base/elements";
+@import "base/elements";
 
 /* Objects */
 @import "objects/typography";
