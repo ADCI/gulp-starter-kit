@@ -18,7 +18,6 @@ import postcssSelectorMatches from 'postcss-selector-matches';
 import postcssSelectorNot from 'postcss-selector-not';
 import postscss from 'postcss-scss';
 import postcssCalc from 'postcss-calc';
-import stripInlineComments from 'postcss-strip-inline-comments';
 import cssMqpacker from 'css-mqpacker';
 import postcssFlexbugsFixes from 'postcss-flexbugs-fixes';
 import postcssClearfix from 'postcss-clearfix';
@@ -206,7 +205,6 @@ const postcssProcessors = [
   postcssClearfix,
   postcssQuantityQueries,
   postcssPseudoelements,
-  stripInlineComments,
   postcssCalc,
   postcssInitial,
   postcssFlexbugsFixes,
