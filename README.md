@@ -6,7 +6,7 @@ Gulp-based build set-up for common needs.
 - divide source code from compiled
 - separate production task
 - modularity
-- the edge of web technologies
+- modern, future-proof technologies
 - linting (code style / syntax errors checking)
 - browsers live reload
 - dependencies through node modules (you can install libraries through NPM and import them in your styles/scripts)
@@ -15,9 +15,10 @@ Gulp-based build set-up for common needs.
 
 Styles:
 - Normalize.css
-- PostCSS: CSSNext, PreCSS and some of Rucksack plugins (not as packs, all plugins separate) + flex bugs fixes
-- SCSS + autoprefixer + flex bugs fixes
+- PostCSS: CSSNext
+- SCSS + autoprefixer
 - Sourcemaps
+- Production: mqpacker, cssnano
 
 **Note** You can choose only PostCSS or SCSS (default is PostCSS): just change `stylesType` variable and delete unecessary folder (/src/postcss or /src/scss).
 
@@ -25,14 +26,15 @@ Scripts:
 - Javascript: ES2015, ES2016
 - Webpack 1.x (as module bundler)
 - Sourcemaps
+- Production: UglifyJS
 
 Code style checking:
-- (Styles) Stylelint (standard config, csslint-missing + some sensible settings)
-- (Scripts) ESLint (recommended config + Airbnb config)
+- (Styles) Stylelint: standard config + some sensible settings
+- (Scripts) ESLint: recommended config + Airbnb config
 
 Images:
 - sprites generator (spritesmith)
-- compress images in the production build (imagemin)
+- Production: imagemin
 
 Fonts (fallback: it's better to use FontSquirrel for generating fonts):
 - generates TTF, WOFF, WOFF2 fonts from OTF, TTF
@@ -48,10 +50,10 @@ PostCSS (postcss/) / SCSS (scss/):
 - main source file (main.css / main.scss)
 - base/:
   - vars: variables
-  - tools: mixins
   - elements: base html elements styles
 - objects/: OOCSS
 - components/: BEM, Atomic Design
+- tools/: mixins
   
 JavaScript (js/):
 - main source file (main.js)
@@ -73,8 +75,7 @@ Fonts (fonts/) - source fonts
 
 #Requirements
 
-- Node.js - latest v6.9.x LTS "Boron" is recommended
-- NPM - latest version recommended
+- Node.js - latest v6.x LTS "Boron" is recommended
 - (optional) Gulp globally - latest v3.9.x recommended if you want to use gulp commands directly
 
 #Installation
@@ -92,13 +93,8 @@ Also, you can see subtasks in gulpfile.
 
 #Browser support
 
-Latest versions of the following:
-- Chrome
-- Edge
-- Firefox
-- Safari
-- Opera
-- Internet Explorer 9+ (Support for 9 and 10 versions is being considered to be dropped in the near future)
+- > 0.5%
+- last 2 versions
 
 #Related links
 
