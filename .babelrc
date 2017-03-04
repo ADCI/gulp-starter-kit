@@ -5,7 +5,6 @@
   ],
   "retainLines": true,
   "ignore": [
-    "src/js/vendor",
     "/node_modules/"
   ]
 }
