@@ -307,13 +307,21 @@ gulp.task('scripts:lint', () => {
   .pipe($.eslint.format(friendlyFormatter));
 });
 
+// Markup
+gulp.task('markup', () => {
+  gulp.src(src + '/pug/*.pug')
+    .pipe($.plumber())
+    .pipe($.pug())
+    .pipe(gulp.dest(dist));
+});
+
 // Clean output directory
 gulp.task('clean', () => del([dist], { dot: true }));
 
 // Build dev files
 gulp.task('default', ['clean'], cb => {
   runSequence(
-    [stylesType, 'scripts', 'images', 'copy'],
+    ['markup', stylesType, 'scripts', 'images', 'copy'],
     cb
   );
 });
@@ -321,7 +329,7 @@ gulp.task('default', ['clean'], cb => {
 // Build production files
 gulp.task('prod', ['clean'], cb => {
   runSequence(
-    [stylesType + ':prod', 'scripts:prod', 'images:prod', 'copy'],
+    ['markup', stylesType + ':prod', 'scripts:prod', 'images:prod', 'copy'],
     cb
   );
 });
