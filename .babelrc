@@ -5,6 +5,8 @@
   ],
   "retainLines": true,
   "ignore": [
-    "/node_modules/"
+    "/bower_components",
+    "/node_modules/",
+    "/vendor/"
   ]
 }
