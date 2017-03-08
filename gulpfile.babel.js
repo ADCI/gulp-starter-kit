@@ -339,6 +339,7 @@ gulp.task('watch', ['default'], () => {
   gulp.watch([src + '/' + stylesType + '/**/*' + stylesExtension], [stylesType, reload]);
   gulp.watch([src + '/js/**/*.js'], ['scripts', reload]);
   gulp.watch([src + '/img/**/*'], ['img', reload]);
+  gulp.watch([src + '/pug/**/*'], ['markup', reload]);
 });
 
 // Build and serve the output from the dist build
@@ -350,4 +351,5 @@ gulp.task('serve', ['default'], () => {
 
   gulp.watch([src + '/' + stylesType + '/**/*' + stylesExtension], [stylesType, reload]);
   gulp.watch([src + '/js/**/*.js'], ['scripts', reload]);
+  gulp.watch([src + '/pug/**/*'], ['markup', reload]);
 });
