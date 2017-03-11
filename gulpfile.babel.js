@@ -60,14 +60,14 @@ gulp.task('images', () => {
   let spriteData = gulp.src(src + '/img/src/sprite/*.*')
     .pipe($.spritesmith({
       imgName: 'sprite.png',
-      cssName: '_sprite.css',
+      cssName: 'sprite' + stylesExtension,
       imgPath: dist + '/img/sprite.png'
     }));
   spriteData.img
     .pipe(buffer())
     .pipe(gulp.dest(dist + '/img'));
   spriteData.css
-    .pipe(gulp.dest(src + '/css'));
+    .pipe(gulp.dest(src + '/' + stylesType));
 });
 
 gulp.task('images:prod', () => {
@@ -88,7 +88,7 @@ gulp.task('images:prod', () => {
   let spriteData = gulp.src(src + '/img/src/sprite/*.*')
     .pipe($.spritesmith({
       imgName: 'sprite.png',
-      cssName: '_sprite.scss',
+      cssName: 'sprite' + stylesExtension,
       imgPath: dist + '/img/sprite.png'
     }));
   spriteData.img
@@ -104,7 +104,7 @@ gulp.task('images:prod', () => {
     })))
     .pipe(gulp.dest(dist + '/img'));
   spriteData.css
-    .pipe(gulp.dest(src + '/css'));
+    .pipe(gulp.dest(src + '/' + stylesType));
 });
 
 // Copy all files at the root level (src)
@@ -114,7 +114,8 @@ gulp.task('copy', () => {
     [
       src + '/*',
       '!' + src + '/postcss',
-      '!' + src + '/scss'
+      '!' + src + '/scss',
+      '!' + src + '/pug'
     ],
     {
       dot: true
