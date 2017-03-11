@@ -1,11 +1,11 @@
+/* Vendors */
+@import "~normalize.css";
+
 /* Setup */
 @import "base/vars";
 
 /* Mixins */
 @import "tools/mixins";
-
-/* Vendors */
-@import "~normalize.css";
 
 /* Base styles */
 @import "base/elements";
