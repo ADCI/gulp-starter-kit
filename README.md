@@ -1,8 +1,8 @@
-#Gulp starter kit
+# Gulp starter kit
 
 Gulp-based build set-up for common needs.
 
-#Concepts
+## Concepts
 - divide source code from compiled
 - separate production task
 - modularity
@@ -11,7 +11,7 @@ Gulp-based build set-up for common needs.
 - browsers live reload
 - dependencies through node modules (you can install libraries through NPM and import them in your styles/scripts)
 
-#Content
+## Content
 
 Styles:
 - Normalize.css
@@ -42,7 +42,7 @@ Fonts (fallback: it's better to use FontSquirrel for generating fonts):
 Browsers live reload:
 - BrowserSync
 
-#Base structure
+## Base structure
 
 **src/**
 
@@ -73,16 +73,16 @@ Fonts (fonts/) - source fonts
 - img/sprite.png - output sprite
 - fonts/ - output fonts
 
-#Requirements
+## Requirements
 
 - Node.js - latest v6.x LTS "Boron" is recommended
 - (optional) Gulp globally - latest v3.9.x recommended if you want to use gulp commands directly
 
-#Installation
+## Installation
 
 `npm install`
 
-#Usage
+## Usage
 
 - `gulp` / `npm run build` - build project
 - `gulp watch` / `npm run watch` - watch changes
@@ -91,12 +91,12 @@ Fonts (fonts/) - source fonts
 
 Also, you can see subtasks in gulpfile.
 
-#Browser support
+## Browser support
 
 - > 0.5%
 - last 2 versions
 
-#Related links
+## Related links
 
 - [nvm](https://github.com/creationix/nvm), [Node.js](https://nodejs.org/en/), [NPM](https://www.npmjs.com/), [Yarn](https://yarnpkg.com/lang/en/)
 - [Gulp](http://gulpjs.com/)
@@ -110,7 +110,7 @@ Also, you can see subtasks in gulpfile.
 - Images: [spritesmith](https://github.com/twolfson/gulp.spritesmith), [imagemin](https://github.com/sindresorhus/gulp-imagemin)
 - [BrowserSync](https://browsersync.io/)
 
-#Webpack starter kit
+## Webpack starter kit
 
 There also exist webpack + npm scripts based build similar to this that is considered as main and has priority above this kit. In the near future, development for gulp starter kit will be stopped and the webpack starter kit will be the only supported build.
 
