@@ -14,6 +14,7 @@ html {
   font-size: var(--main-font-size);
   line-height: var(--main-line-height);
   color: var(--main-text-color);
+  overflow-wrap: break-word;
   word-wrap: break-word;
 }
 
