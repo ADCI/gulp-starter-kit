@@ -2,7 +2,7 @@
 @import "normalize.css";
 
 /* Setup */
-@import "./base/vars.css";
+@import "base/settings.css";
 
 /* Tools */
 @import "./tools/mixins.css";
