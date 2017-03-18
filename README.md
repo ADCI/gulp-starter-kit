@@ -93,7 +93,7 @@ Also, you can see subtasks in gulpfile.
 
 ## Browser support
 
-- > 0.5%
+- \> 0.5%
 - last 2 versions
 
 ## Related links
