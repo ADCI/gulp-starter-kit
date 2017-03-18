@@ -1,6 +1,6 @@
 :root {
-  --container-gutter: 45px;
-  --container-width: calc(1700px + var(--container-gutter) * 2);
+  --container-gutter: 15px;
+  --container-width: calc(1200px + var(--container-gutter) * 2);
   --col-gutter: var(--container-gutter);
 }
 
