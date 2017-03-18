@@ -17,6 +17,10 @@ html {
   word-wrap: break-word;
 }
 
+body {
+  background: var(--main-bg);
+}
+
 audio,
 canvas,
 iframe,
