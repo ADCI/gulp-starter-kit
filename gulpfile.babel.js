@@ -15,6 +15,7 @@ import postscss from 'postcss-scss';
 import cssMqpacker from 'css-mqpacker';
 import postcssNext from 'postcss-cssnext';
 import postcssImport from 'postcss-import';
+import postcssExtend from 'postcss-extend';
 import postcssReporter from 'postcss-reporter';
 import cssnano from 'cssnano';
 
@@ -157,11 +158,13 @@ const supportedBrowsers = [
 ];
 const postcssProcessors = [
   postcssImport,
+  postcssExtend,
   postcssNext({ browsers: supportedBrowsers }),
   postcssReporter({ clearReportedMessages: true })
 ];
 const postcssProcessorsProd = [
   postcssImport,
+  postcssExtend,
   postcssNext({ browsers: supportedBrowsers }),
   cssMqpacker({ sort: true }),
   cssnano({
