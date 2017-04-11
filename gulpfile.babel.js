@@ -58,11 +58,11 @@ gulp.task('images', () => {
     .pipe(gulp.dest(dist + '/img'));
 
   // sprites
-  let spriteData = gulp.src(src + '/img/src/sprite/*.*')
+  let spriteData = gulp.src(src + '/img/sprite/*.*')
     .pipe($.spritesmith({
       imgName: 'sprite.png',
       cssName: 'sprite' + stylesExtension,
-      imgPath: dist + '/img/sprite.png'
+      imgPath: dist + '../img/sprite.png'
     }));
   spriteData.img
     .pipe(buffer())
@@ -86,11 +86,11 @@ gulp.task('images:prod', () => {
     .pipe(gulp.dest(dist + '/img'));
 
   // sprites
-  let spriteData = gulp.src(src + '/img/src/sprite/*.*')
+  let spriteData = gulp.src(src + '/img/sprite/*.*')
     .pipe($.spritesmith({
       imgName: 'sprite.png',
       cssName: 'sprite' + stylesExtension,
-      imgPath: dist + '/img/sprite.png'
+      imgPath: dist + '../img/sprite.png'
     }));
   spriteData.img
     .pipe(buffer())
