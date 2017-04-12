@@ -249,7 +249,8 @@ gulp.task('scss', ['scss:lint'], () => {
   .pipe($.sass().on('error', $.sass.logError))
   .pipe($.postcss(scssProcessors))
   .pipe($.sourcemaps.write())
-  .pipe(gulp.dest(dist + '/css'));
+  .pipe(gulp.dest(dist + '/css'))
+  .pipe(reload({stream:true}));
 });
 
 gulp.task('scss:prod', ['scss:lint'], () => {
@@ -295,7 +296,8 @@ gulp.task('scripts', ['scripts:lint'], () => {
     .pipe($.sourcemaps.init())
     .pipe(webpack(webpackConfig))
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest(dist + '/js'));
+    .pipe(gulp.dest(dist + '/js'))
+    .pipe(reload({stream:true}));
 });
 
 gulp.task('scripts:prod', ['scripts:lint'], () => {
@@ -316,7 +318,8 @@ gulp.task('markup', () => {
   gulp.src(src + '/pug/*.pug')
     .pipe($.plumber())
     .pipe($.pug())
-    .pipe(gulp.dest(dist));
+    .pipe(gulp.dest(dist))
+    .pipe(reload({stream:true}));
 });
 
 // Clean output directory
