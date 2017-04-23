@@ -173,12 +173,14 @@ const postcssProcessorsProd = [
   postcssReporter({ clearReportedMessages: true })
 ];
 const scssProcessors = [
+  postcssExtend,
   autoprefixer({
     browsers: supportedBrowsers,
     cascade: false
   }),
 ];
 const scssProcessorsProd = [
+  postcssExtend,
   autoprefixer({
     browsers: supportedBrowsers,
     cascade: false
