@@ -20,7 +20,8 @@ import postcssReporter from 'postcss-reporter';
 import cssnano from 'cssnano';
 
 // js
-import webpack from 'webpack-stream';
+import webpackStream from 'webpack-stream';
+import webpack from 'webpack';
 
 // linters
 import friendlyFormatter from 'eslint-friendly-formatter';
@@ -279,7 +280,7 @@ const webpackConfig = {
       test: /\.js$/,
       loader: 'babel-loader',
       exclude: /node_modules/,
-      query: {
+      options: {
         presets: ['es2015', 'es2016']
       }
     }]
@@ -296,7 +297,7 @@ const webpackConfig = {
 gulp.task('scripts', ['scripts:lint'], () => {
   gulp.src(src + '/js/*.js')
     .pipe($.sourcemaps.init())
-    .pipe(webpack(webpackConfig))
+    .pipe(webpackStream(webpackConfig, webpack))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest(dist + '/js'))
     .pipe(reload({stream:true}));
@@ -304,7 +305,7 @@ gulp.task('scripts', ['scripts:lint'], () => {
 
 gulp.task('scripts:prod', ['scripts:lint'], () => {
   gulp.src(src + '/js/*.js')
-    .pipe(webpack(webpackConfig))
+    .pipe(webpackStream(webpackConfig, webpack))
     .pipe($.uglify())
     .pipe(gulp.dest(dist + '/js'))
 });

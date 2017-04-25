@@ -27,13 +27,14 @@
     "serve": "gulp serve"
   },
   "dependencies": {
-    "normalize.css": "^6.0.0"
+    "normalize.css": "^6.0.0",
+    "webpack": "^2.4.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.6",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
-    "babel-loader": "^6.2.8",
+    "babel-loader": "^7.0.0",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-es2016": "^6.22.0",
     "babel-register": "^6.14.0",
