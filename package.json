@@ -1,6 +1,6 @@
 {
   "name": "gulp-starter-pack",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Gulp boilerplate build config",
   "keywords": [
     "gulp",
@@ -17,7 +17,19 @@
   },
   "private": true,
   "main": "gulpfile.babel.js",
+  "engines": {
+    "node": ">=6.9.5 <7"
+  },
+  "scripts": {
+    "build": "gulp",
+    "prod": "gulp prod",
+    "watch": "gulp watch",
+    "serve": "gulp serve"
+  },
   "dependencies": {
+    "normalize.css": "^6.0.0"
+  },
+  "devDependencies": {
     "autoprefixer": "^6.7.6",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
@@ -54,7 +66,6 @@
     "gulp-uglify": "^2.0.0",
     "gulp.spritesmith": "^6.3.0",
     "imagemin-pngquant": "^5.0.0",
-    "normalize.css": "^6.0.0",
     "postcss-cssnext": "^2.9.0",
     "postcss-extend": "^1.0.5",
     "postcss-import": "^9.1.0",
@@ -66,14 +77,5 @@
     "stylelint-scss": "^1.4.3",
     "vinyl-buffer": "^1.0.0",
     "webpack-stream": "^3.2.0"
-  },
-  "engines": {
-    "node": ">=6.9.5 <7"
-  },
-  "scripts": {
-    "build": "gulp",
-    "prod": "gulp prod",
-    "watch": "gulp watch",
-    "serve": "gulp serve"
   }
 }
