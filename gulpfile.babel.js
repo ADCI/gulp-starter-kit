@@ -55,7 +55,12 @@ const src = './src';
 // Images
 gulp.task('images', () => {
   // separate images
-  gulp.src(src + '/img/**/*.*')
+  gulp.src([
+      src + '/img/**/*.*',
+      '!' + src + '/img/sprite/**/*.*'
+    ], {
+      dot: true
+    })
     .pipe(gulp.dest(dist + '/img'));
 
   // sprites
@@ -63,18 +68,25 @@ gulp.task('images', () => {
     .pipe($.spritesmith({
       imgName: 'sprite.png',
       cssName: 'sprite' + stylesExtension,
-      imgPath: dist + '/../../img/sprite.png'
-    }));
+      imgPath: '../img/sprite.png'
+  }));
+
   spriteData.img
     .pipe(buffer())
     .pipe(gulp.dest(dist + '/img'));
+
   spriteData.css
     .pipe(gulp.dest(src + '/' + stylesType));
 });
 
 gulp.task('images:prod', () => {
   // separate images
-  gulp.src(src + '/img/**/*.*')
+  gulp.src([
+      src + '/img/**/*.*',
+      '!' + src + '/img/sprite/**/*.*'
+    ], {
+      dot: true
+    })
     .pipe($.cache($.imagemin({
       progressive: true,
       interlaced: true,
@@ -91,8 +103,9 @@ gulp.task('images:prod', () => {
     .pipe($.spritesmith({
       imgName: 'sprite.png',
       cssName: 'sprite' + stylesExtension,
-      imgPath: dist + '/../../img/sprite.png'
-    }));
+      imgPath: '../img/sprite.png'
+  }));
+
   spriteData.img
     .pipe(buffer())
     .pipe($.cache($.imagemin({
@@ -105,6 +118,7 @@ gulp.task('images:prod', () => {
       use: [pngquant()]
     })))
     .pipe(gulp.dest(dist + '/img'));
+
   spriteData.css
     .pipe(gulp.dest(src + '/' + stylesType));
 });
@@ -112,14 +126,12 @@ gulp.task('images:prod', () => {
 // Copy all files at the root level (src)
 gulp.task('copy', () => {
   // 1st level files
-  gulp.src(
-    [
+  gulp.src([
       src + '/*',
       '!' + src + '/postcss',
       '!' + src + '/scss',
       '!' + src + '/pug'
-    ],
-    {
+    ], {
       dot: true
     }
   ).pipe(gulp.dest(dist))
@@ -223,7 +235,12 @@ const stylelintScss = {
 };
 
 gulp.task('postcss', ['postcss:lint'], () => {
-  gulp.src(src + '/postcss/*.css')
+  gulp.src([
+      src + '/postcss/*.css',
+      '!' + src + '/postcss/sprite.css'
+    ], {
+      dot: true
+    })
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.postcss(postcssProcessors, {syntax: postscss}))
@@ -232,13 +249,23 @@ gulp.task('postcss', ['postcss:lint'], () => {
 });
 
 gulp.task('postcss:prod', ['postcss:lint'], () => {
-  gulp.src(src + '/postcss/*.css')
+  gulp.src([
+      src + '/postcss/*.css',
+      '!' + src + '/postcss/sprite.css'
+    ], {
+      dot: true
+    })
     .pipe($.postcss(postcssProcessorsProd, {syntax: postscss}))
     .pipe(gulp.dest(dist + '/css'));
 });
 
 gulp.task('postcss:lint', () => {
-  gulp.src(src + '/postcss/**/*.css')
+  gulp.src([
+    src + '/postcss/**/*.css',
+    '!' + src + '/postcss/sprite.css'
+  ], {
+    dot: true
+  })
   .pipe($.postcss([
     stylelint,
     postcssReporter({ clearReportedMessages: true })
@@ -331,7 +358,8 @@ gulp.task('clean', () => del([dist], { dot: true }));
 // Build dev files
 gulp.task('default', ['clean'], cb => {
   runSequence(
-    ['markup', stylesType, 'scripts', 'images', 'copy'],
+    'images',
+    ['markup', stylesType, 'scripts', 'copy'],
     cb
   );
 });
@@ -339,7 +367,8 @@ gulp.task('default', ['clean'], cb => {
 // Build production files
 gulp.task('prod', ['clean'], cb => {
   runSequence(
-    ['markup', stylesType + ':prod', 'scripts:prod', 'images:prod', 'copy'],
+    'images:prod',
+    ['markup', stylesType + ':prod', 'scripts:prod', 'copy'],
     cb
   );
 });
