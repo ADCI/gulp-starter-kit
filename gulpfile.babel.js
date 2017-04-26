@@ -41,7 +41,7 @@ import Fontmin from 'fontmin';
  */
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
-const stylesType = 'postcss'; // postcss or scss
+const stylesType = 'scss'; // postcss or scss
 const stylesExtension = stylesType === 'postcss' ? '.css' : '.scss';
 
 // Paths
