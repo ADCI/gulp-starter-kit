@@ -16,15 +16,15 @@ Gulp-based build set-up for common needs.
 Styles:
 - Normalize.css
 - PostCSS: CSSNext
-- SCSS + autoprefixer
+- Sass + autoprefixer
 - Sourcemaps
 - Production: mqpacker, cssnano
 
-**Note** You can choose only PostCSS or SCSS (default is PostCSS): just change `stylesType` variable and delete unecessary folder (/src/postcss or /src/scss).
+**Note** You can choose only PostCSS or Sass (default is Sass): just change `stylesType` variable and delete unecessary folder (/src/postcss or /src/scss).
 
 Scripts: 
 - Javascript: ES2015, ES2016
-- Webpack 1.x (as module bundler)
+- Webpack 2.x (as module bundler)
 - Sourcemaps
 - Production: UglifyJS
 
@@ -36,7 +36,7 @@ Images:
 - sprites generator (spritesmith)
 - Production: imagemin
 
-Fonts (fallback: it's better to use FontSquirrel for generating fonts):
+Fonts:
 - generates TTF, WOFF, WOFF2 fonts from OTF, TTF
 
 Browsers live reload:
@@ -46,7 +46,7 @@ Browsers live reload:
 
 **src/**
 
-PostCSS (postcss/) / SCSS (scss/):
+PostCSS (postcss/) / Sass (scss/):
 - main source file (main.css / main.scss)
 - base/:
   - vars: variables
