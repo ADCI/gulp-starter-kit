@@ -105,7 +105,7 @@ Also, you can see subtasks in gulpfile.
 - [Sass (SCSS)](http://sass-lang.com/)
 - [Sourcemaps](https://blog.logentries.com/2014/12/what-are-javascript-source-maps/)
 - JavaScript: [ES2015](https://babeljs.io/learn-es2015/), [ES2016](http://www.2ality.com/2016/01/ecmascript-2016.html), [JavaScript Modules](https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.gckmsqgz5),  [UglifyJS](https://github.com/mishoo/UglifyJS2)
-- [Module Bundling](https://medium.freecodecamp.com/javascript-modules-part-2-module-bundling-5020383cf306#.jylmhm5v0): [Webpack](https://webpack.github.io/)
+- [Module Bundling](https://medium.freecodecamp.com/javascript-modules-part-2-module-bundling-5020383cf306#.jylmhm5v0): [Webpack](https://webpack.js.org/)
 - Linters: [Stylelint](https://stylelint.io/), [ESLint](http://eslint.org/)
 - Images: [spritesmith](https://github.com/twolfson/gulp.spritesmith), [imagemin](https://github.com/sindresorhus/gulp-imagemin)
 - [BrowserSync](https://browsersync.io/)
