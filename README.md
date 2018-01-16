@@ -1,3 +1,8 @@
+# End of support
+
+The suppport of the kit ended in favor of webpack (+ npm scripts) based build which is similar to this but has more options and it's more convenient:
+https://github.com/ADCI/webpack-starter-kit
+
 # Gulp starter kit
 
 Gulp-based build set-up for common needs.
@@ -109,9 +114,3 @@ Also, you can see subtasks in gulpfile.
 - Linters: [Stylelint](https://stylelint.io/), [ESLint](http://eslint.org/)
 - Images: [spritesmith](https://github.com/twolfson/gulp.spritesmith), [imagemin](https://github.com/sindresorhus/gulp-imagemin)
 - [BrowserSync](https://browsersync.io/)
-
-## Webpack starter kit
-
-There also exist webpack + npm scripts based build similar to this that is considered as main and has priority above this kit. In the near future, development for gulp starter kit will be stopped and the webpack starter kit will be the only supported build.
-
-https://github.com/ADCI/webpack-starter-kit
